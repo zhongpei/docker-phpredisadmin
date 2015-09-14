@@ -2,7 +2,10 @@ FROM famly/apache
 
 MAINTAINER Henrik Rasmussen, hmr@famly.dk
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install git php5-cli php5-json
+
+RUN sed -i "s/archive.ubuntu.com/mirrors.163.com/" /etc/apt/sources.list
+
+RUN apt-get -y install git php5-cli
 
 RUN curl -s http://getcomposer.org/installer | php
 
